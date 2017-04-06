@@ -25,11 +25,12 @@ def seed_generator(size):
 # 	print("")
 
 # for value in range(100):
+# value = (2 ** 3217) - 1
+# print("Value: %s" % (value))
+# print("Bit size: %s" % (len(bin(value)) - 2))
 generator = LCG(4096, seed_generator(4096))
 value = generator.generate()
 if value % 2 == 0:
 	value += 1
-print("Value: %s" % (value))
-print("Bit size: %s" % (len(bin(value)) - 2))
 print("Primality: %s" % (MillerRabin.test(value)))
 # print("%s primality: %s" % (value, MillerRabin.test(value)))
