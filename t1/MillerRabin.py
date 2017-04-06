@@ -1,6 +1,3 @@
-def debug(value, varname):
-	print("%s = %s" % (varname, value))
-
 class MillerRabin:
 	def test(n, k = None):
 		# Casos básicos de primalidade.
@@ -13,7 +10,7 @@ class MillerRabin:
 		prev = n - 1
 		r = 0
 		while prev % 2 == 0:
-			prev >>= 2
+			prev >>= 1
 			r += 1
 		d = prev
 
@@ -24,31 +21,20 @@ class MillerRabin:
 		if k == None or k > n - 3:
 			k = n - 3
 
-		# rotate = 0
 		for i in range(k):
-			# rotate = (rotate + 1) % 1000
-			# if rotate == 0:
-			# 	debug(i, "i")
 			a = 2 + i
 			x = pow(a, d, n)
 			if x == 1 or x == n - 1:
 				continue
 			skip = False
-			# debug(r, "r")
 			for j in range(r - 1):
-				# print("j = %s" % (j))
 				x = (x * x) % n
-				# debug(x, "x")
 				if x == 1:
-					# print("x == 1")
 					return False
 				if x == n - 1:
-					# print("skip = true")
 					skip = True
 					break
-			# debug(skip, "skip")
 			if skip:
 				continue
-			# print("blackhole")
 			return False
 		return True
