@@ -21,15 +21,8 @@ class MillerRabin:
 		if k == None or k > n - 3:
 			k = n - 3
 
-		# Espaço de busca total, do qual uma amostra será retirada.
-		search_space = range(2, n - 1)
-
-		# Uma amostra do espaço de busca que será efetivamente analisada
-		# pelo algoritmo.
-		sample = random.sample(search_space, k)
-
 		for i in range(k):
-			a = sample[i]
+			a = MillerRabin.next_attempt(n, k, i)
 			x = pow(a, d, n)
 			if x == 1 or x == n - 1:
 				continue
@@ -45,3 +38,10 @@ class MillerRabin:
 				continue
 			return False
 		return True
+
+	def next_attempt(n, k, i):
+		min_value = 2
+		max_value = n - 2
+		if k >= max_value - min_value + 1:
+			return min_value + i
+		return random.randint(min_value, max_value)

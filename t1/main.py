@@ -1,9 +1,11 @@
 #!/bin/python
 
 from BlumBlumShub import BlumBlumShub
+from Fermat import Fermat
 from time import time
 from LCG import LCG
 from MillerRabin import MillerRabin
+from SolovayStrassen import SolovayStrassen
 
 def debug(value, varname):
 	print("%s = %s" % (varname, value))
@@ -45,9 +47,12 @@ for size in sizes:
 # if value % 2 == 0:
 # 	value += 1
 # value = (2 ** 3217) - 1
+# value = 561
 # print("Value: %s" % (value))
 # print("Bit size: %s" % (len(bin(value)) - 2))
-# print("Primality: %s" % (MillerRabin.test(value, 10)))
+# print("Primality (Miller-Rabin): %s" % (MillerRabin.test(value, 10)))
+# print("Primality (Solovay Strassen): %s" % (SolovayStrassen.test(value, 10)))
+# print("Primality (Fermat): %s" % (Fermat.test(value, 10)))
 
 # accuracy = 10
 # for value in range(1000):
