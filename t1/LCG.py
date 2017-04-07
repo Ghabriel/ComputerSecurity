@@ -5,7 +5,7 @@ class LCG:
 		# Permite um cálculo do módulo mais eficiente e torna
 		# mais simples encontrar valores válidos para os parâmetros
 		# a e c.
-		self.m = 2 ** size
+		self.m = 2 ** (2 * size)
 
 		# Valor usado pelo Borland C/C++. Satisfaz todas as
 		# condições de período completo do algoritmo.
@@ -15,10 +15,12 @@ class LCG:
 		# aqui por um valor simples.
 		self.c = 1
 
-		# Armazena a semente passada por parâmetro.
+		# Armazena a semente inicial e o tamanho desejado.
 		self.seed = seed
+		self.size = size
 
 	# Gera um novo valor aleatório e o retorna.
 	def generate(self):
 		self.seed = (self.a * self.seed + self.c) % self.m
-		return self.seed
+		bin_value = bin(self.seed)[2:]
+		return int(bin_value[:self.size], 2)

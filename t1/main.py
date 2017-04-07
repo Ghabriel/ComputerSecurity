@@ -22,7 +22,7 @@ def seed_generator(size):
 sizes = [40, 56, 80, 128, 168, 224, 256, 512, 1024, 2048, 4096]
 print("LCG:")
 for size in sizes:
-	generator = LCG(size, seed_generator(size))
+	generator = LCG(size, seed_generator(2 * size))
 	print("Ordem de grandeza: %s bits" % (size))
 	for i in range(10):
 		value = generator.generate()
