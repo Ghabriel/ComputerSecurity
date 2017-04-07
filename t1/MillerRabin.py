@@ -1,3 +1,5 @@
+import random
+
 class MillerRabin:
 	def test(n, k = None):
 		# Casos básicos de primalidade.
@@ -14,15 +16,20 @@ class MillerRabin:
 			r += 1
 		d = prev
 
-		# Para k > n - 3, no loop a seguir a variável 'i' atingirá valores
-		# maiores que n - 4, tornando o valor de 'a' superior a 2 + (n - 4) =
-		# n - 2, o que fica fora do intervalo de verificação do teste de
-		# Miller-Rabin.
+		# O tamanho do espaço de busca é n - 3, portanto k não pode
+		# ultrapassar este valor.
 		if k == None or k > n - 3:
 			k = n - 3
 
+		# Espaço de busca total, do qual uma amostra será retirada.
+		search_space = range(2, n - 1)
+
+		# Uma amostra do espaço de busca que será efetivamente analisada
+		# pelo algoritmo.
+		sample = random.sample(search_space, k)
+
 		for i in range(k):
-			a = 2 + i
+			a = sample[i]
 			x = pow(a, d, n)
 			if x == 1 or x == n - 1:
 				continue

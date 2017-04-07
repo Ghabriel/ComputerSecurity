@@ -40,11 +40,11 @@ for size in sizes:
 		print("%s (tamanho em bits: %s)" % (value, bit_size))
 	print("")
 
-# value = (2 ** 3217) - 1
 # generator = LCG(4096, seed_generator(4096))
 # value = generator.generate()
 # if value % 2 == 0:
 # 	value += 1
+# value = (2 ** 3217) - 1
 # print("Value: %s" % (value))
 # print("Bit size: %s" % (len(bin(value)) - 2))
 # print("Primality: %s" % (MillerRabin.test(value, 10)))
