@@ -38,6 +38,7 @@ class SolovayStrassen:
 				return False
 		return True
 
+	# Método auxiliar que retorna o próximo valor a ser analisado.
 	def next_attempt(n, k, i):
 		min_value = 2
 		max_value = n - 1
