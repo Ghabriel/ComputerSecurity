@@ -6,8 +6,12 @@ class BlumBlumShub:
 		# Ambas as condições necessárias são cumpridas, isto é:
 		# 	p e q são congruentes a 3 (mod 4)
 		#	mdc(phi(p), phi(q)) é pequeno (6)
-		p = (2 ** 2203) - 1
-		q = (2 ** 4253) - 1
+		if size < 128:
+			p = (2 ** 107) - 1
+			q = (2 ** 127) - 1
+		else:
+			p = (2 ** 2203) - 1
+			q = (2 ** 4253) - 1
 
 		# Calcula o parâmetro M do algoritmo.
 		self.m = p * q
@@ -16,6 +20,8 @@ class BlumBlumShub:
 		seed = max(2, seed)
 
 		# Garante que o valor da semente seja co-primo a M.
+		# (como 'p' e 'q' são ímpares, uma semente par será
+		# garantidamente coprima a ambos e, portanto, a M)
 		if seed % 2 == 1:
 			seed += 1
 
