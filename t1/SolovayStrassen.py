@@ -30,6 +30,7 @@ class SolovayStrassen:
 		if k == None or k > n - 2:
 			k = n - 2
 
+		# Executa o teste em si.
 		exponent = (n - 1) // 2
 		for i in range(k):
 			a = SolovayStrassen.next_attempt(n, k, i)

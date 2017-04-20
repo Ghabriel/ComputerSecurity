@@ -1,3 +1,5 @@
+import math
+
 class LCG:
 	# Inicializa o algoritmo com o tamanho desejado
 	# dos valores gerados e uma semente.
@@ -22,5 +24,9 @@ class LCG:
 	# Gera um novo valor aleatório e o retorna.
 	def generate(self):
 		self.seed = (self.a * self.seed + self.c) % self.m
-		bin_value = bin(self.seed)[2:]
-		return int(bin_value[1:(self.size + 1)], 2)
+		bin_value_size = math.ceil(math.log2(self.seed + 1))
+		# Pega os N+1 bits mais significativos, onde N é o
+		# tamanho desejado pelo usuário.
+		significant_part = self.seed >> (bin_value_size - (self.size + 1))
+		# Remove o bit mais significativo do resultado anterior.
+		return significant_part ^ (2 ** self.size)

@@ -21,6 +21,7 @@ class MillerRabin:
 		if k == None or k > n - 3:
 			k = n - 3
 
+		# Executa o teste em si.
 		for i in range(k):
 			a = MillerRabin.next_attempt(n, k, i)
 			x = pow(a, d, n)

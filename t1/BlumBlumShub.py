@@ -32,8 +32,7 @@ class BlumBlumShub:
 	# Gera um novo valor aleatório e o retorna.
 	def generate(self):
 		self.seed = (self.seed * self.seed) % self.m
-		bin_value = bin(self.seed)[2:]
 		# Obtém os N bits menos significativos da nova semente,
 		# onde N é o tamanho desejado, e retorna sua
 		# representação decimal.
-		return int(bin_value[-self.size:], 2)
+		return self.seed & ((2 ** self.size) - 1)
