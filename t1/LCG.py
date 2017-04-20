@@ -23,4 +23,4 @@ class LCG:
 	def generate(self):
 		self.seed = (self.a * self.seed + self.c) % self.m
 		bin_value = bin(self.seed)[2:]
-		return int(bin_value[:self.size], 2)
+		return int(bin_value[1:(self.size + 1)], 2)
