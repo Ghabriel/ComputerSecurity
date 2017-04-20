@@ -432,6 +432,7 @@ export class Parser {
 			console.log("w2 = ", w2, " (" + formattedBinary(w2, 8) + ")");
 			console.log("w3 = ", w3, " (" + formattedBinary(w3, 8) + ")");
 			console.log("w4 = ", w4, " (" + formattedBinary(w4, 8) + ")");
+			console.log("w5 = ", w5, " (" + formattedBinary(w5, 8) + ")");
 			console.log("key0 = ", key0, " (" + formattedBinary(key0, 16) + ")");
 			console.log("key1 = ", key1, " (" + formattedBinary(key1, 16) + ")");
 			console.log("key2 = ", key2, " (" + formattedBinary(key2, 16) + ")");
