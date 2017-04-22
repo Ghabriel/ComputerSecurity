@@ -409,7 +409,7 @@ export class Parser {
 			let key1 = concat32(w2, w3);
 			let key2 = concat32(w4, w5);
 
-			let round0 = value ^ key1;
+			let round0 = value ^ key0;
 			// round 1
 			let round1 = subNib32(round0);
 			round1 = nibbleSwap(round1);
@@ -418,7 +418,7 @@ export class Parser {
 			let S01 = prod(1, nibble(round1, 1)) ^ prod(4, nibble(round1, 3));
 			let S11 = prod(4, nibble(round1, 1)) ^ prod(1, nibble(round1, 3));
 			let S = concat32(concat(S00, S10), concat(S01, S11));
-			round1 = S ^ value;
+			round1 = S ^ key1;
 
 			// round final
 			let round2 = subNib32(round1);
