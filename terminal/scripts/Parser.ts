@@ -413,10 +413,10 @@ export class Parser {
 			// round 1
 			let round1 = subNib32(round0);
 			round1 = nibbleSwap(round1);
-			let S00 = prod(1, nibble(round1, 0)) ^ prod(4, nibble(round1, 2));
-			let S10 = prod(4, nibble(round1, 0)) ^ prod(1, nibble(round1, 2));
-			let S01 = prod(1, nibble(round1, 1)) ^ prod(4, nibble(round1, 3));
-			let S11 = prod(4, nibble(round1, 1)) ^ prod(1, nibble(round1, 3));
+			let S00 = prod(1, nibble(round1, 0)) ^ prod(4, nibble(round1, 1));
+			let S10 = prod(4, nibble(round1, 0)) ^ prod(1, nibble(round1, 1));
+			let S01 = prod(1, nibble(round1, 2)) ^ prod(4, nibble(round1, 3));
+			let S11 = prod(4, nibble(round1, 2)) ^ prod(1, nibble(round1, 3));
 			let S = concat32(concat(S00, S10), concat(S01, S11));
 			round1 = S ^ key1;
 

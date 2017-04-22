@@ -486,10 +486,10 @@ define("Parser", ["require", "exports", "types"], function (require, exports, ty
                 // round 1
                 var round1 = subNib32(round0);
                 round1 = nibbleSwap(round1);
-                var S00 = prod(1, nibble(round1, 0)) ^ prod(4, nibble(round1, 2));
-                var S10 = prod(4, nibble(round1, 0)) ^ prod(1, nibble(round1, 2));
-                var S01 = prod(1, nibble(round1, 1)) ^ prod(4, nibble(round1, 3));
-                var S11 = prod(4, nibble(round1, 1)) ^ prod(1, nibble(round1, 3));
+                var S00 = prod(1, nibble(round1, 0)) ^ prod(4, nibble(round1, 1));
+                var S10 = prod(4, nibble(round1, 0)) ^ prod(1, nibble(round1, 1));
+                var S01 = prod(1, nibble(round1, 2)) ^ prod(4, nibble(round1, 3));
+                var S11 = prod(4, nibble(round1, 2)) ^ prod(1, nibble(round1, 3));
                 var S = concat32(concat(S00, S10), concat(S01, S11));
                 round1 = S ^ key1;
                 // round final
